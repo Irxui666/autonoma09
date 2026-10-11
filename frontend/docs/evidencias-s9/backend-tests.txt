@@ -1,0 +1,163 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.example:Actividad01 >-----------------------
+[INFO] Building  0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ Actividad01 ---
+[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ Actividad01 ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ Actividad01 ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ Actividad01 ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 3 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ Actividad01 ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.Actividad01.Actividad01ApplicationTests
+08:38:01.122 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.Actividad01.Actividad01ApplicationTests]: Actividad01ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+08:38:01.395 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.Actividad01.Actividad01Application for test class com.example.Actividad01.Actividad01ApplicationTests
+08:38:01.666 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.Actividad01.Actividad01ApplicationTests]: Actividad01ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+08:38:01.671 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.Actividad01.Actividad01Application for test class com.example.Actividad01.Actividad01ApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.7)
+
+2026-10-11T08:38:03.046-05:00  INFO 27636 --- [Actividad01] [           main] c.e.A.Actividad01ApplicationTests        : Starting Actividad01ApplicationTests using Java 21.0.10 with PID 27636 (started by jomac in C:\UNIVERSIDAD\LP2\SEMANA9\tarea05)
+2026-10-11T08:38:03.049-05:00  INFO 27636 --- [Actividad01] [           main] c.e.A.Actividad01ApplicationTests        : The following 1 profile is active: "test"
+2026-10-11T08:38:06.818-05:00  INFO 27636 --- [Actividad01] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-11T08:38:07.072-05:00  INFO 27636 --- [Actividad01] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 222 ms. Found 5 JPA repository interfaces.
+2026-10-11T08:38:09.444-05:00  INFO 27636 --- [Actividad01] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-11T08:38:09.820-05:00  INFO 27636 --- [Actividad01] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.19.Final
+2026-10-11T08:38:12.218-05:00  INFO 27636 --- [Actividad01] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-11T08:38:12.341-05:00  INFO 27636 --- [Actividad01] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-11T08:38:13.651-05:00  INFO 27636 --- [Actividad01] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:pharma-tests user=SA
+2026-10-11T08:38:13.656-05:00  INFO 27636 --- [Actividad01] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-11T08:38:13.752-05:00  WARN 27636 --- [Actividad01] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-10-11T08:38:13.842-05:00  INFO 27636 --- [Actividad01] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:pharma-tests]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: PHARMA-TESTS/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-11T08:38:17.330-05:00  INFO 27636 --- [Actividad01] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-11T08:38:17.517-05:00  INFO 27636 --- [Actividad01] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-11T08:38:17.799-05:00  INFO 27636 --- [Actividad01] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-11T08:38:25.972-05:00  WARN 27636 --- [Actividad01] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-11T08:38:28.687-05:00  INFO 27636 --- [Actividad01] [           main] c.e.A.Actividad01ApplicationTests        : Started Actividad01ApplicationTests in 26.792 seconds (process running for 29.826)
+2026-10-11T08:38:28.693-05:00  WARN 27636 --- [Actividad01] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-11T08:38:28.694-05:00  WARN 27636 --- [Actividad01] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\jomac\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 29.43 s -- in com.example.Actividad01.Actividad01ApplicationTests
+[INFO] Running com.example.Actividad01.CategoriaServiceRulesTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.503 s -- in com.example.Actividad01.CategoriaServiceRulesTest
+[INFO] Running com.example.Actividad01.VentasIntegrationTest
+2026-10-11T08:38:32.542-05:00  INFO 27636 --- [Actividad01] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.Actividad01.VentasIntegrationTest]: VentasIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-11T08:38:32.605-05:00  INFO 27636 --- [Actividad01] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.Actividad01.Actividad01Application for test class com.example.Actividad01.VentasIntegrationTest
+2026-10-11T08:38:32.613-05:00  INFO 27636 --- [Actividad01] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.Actividad01.VentasIntegrationTest]: VentasIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-11T08:38:32.674-05:00  INFO 27636 --- [Actividad01] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.Actividad01.Actividad01Application for test class com.example.Actividad01.VentasIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.7)
+
+2026-10-11T08:38:34.536-05:00  INFO 27636 --- [Actividad01] [           main] c.e.Actividad01.VentasIntegrationTest    : Starting VentasIntegrationTest using Java 21.0.10 with PID 27636 (started by jomac in C:\UNIVERSIDAD\LP2\SEMANA9\tarea05)
+2026-10-11T08:38:34.537-05:00  INFO 27636 --- [Actividad01] [           main] c.e.Actividad01.VentasIntegrationTest    : The following 1 profile is active: "test"
+2026-10-11T08:38:36.478-05:00  INFO 27636 --- [Actividad01] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-11T08:38:36.660-05:00  INFO 27636 --- [Actividad01] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 171 ms. Found 5 JPA repository interfaces.
+2026-10-11T08:38:38.007-05:00  INFO 27636 --- [Actividad01] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-11T08:38:38.155-05:00  INFO 27636 --- [Actividad01] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-11T08:38:38.158-05:00  INFO 27636 --- [Actividad01] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-10-11T08:38:38.723-05:00  INFO 27636 --- [Actividad01] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 4162 ms
+2026-10-11T08:38:39.269-05:00  INFO 27636 --- [Actividad01] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-11T08:38:39.458-05:00  INFO 27636 --- [Actividad01] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-11T08:38:39.470-05:00  INFO 27636 --- [Actividad01] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-11T08:38:39.476-05:00  INFO 27636 --- [Actividad01] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:pharma-tests user=SA
+2026-10-11T08:38:39.477-05:00  INFO 27636 --- [Actividad01] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-11T08:38:39.478-05:00  WARN 27636 --- [Actividad01] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-10-11T08:38:39.484-05:00  INFO 27636 --- [Actividad01] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:pharma-tests]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: PHARMA-TESTS/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-11T08:38:39.803-05:00  INFO 27636 --- [Actividad01] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-11T08:38:39.879-05:00  INFO 27636 --- [Actividad01] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-11T08:38:40.503-05:00  WARN 27636 --- [Actividad01] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-11T08:38:41.256-05:00  INFO 27636 --- [Actividad01] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 60017 (http) with context path '/'
+2026-10-11T08:38:41.282-05:00  INFO 27636 --- [Actividad01] [           main] c.e.Actividad01.VentasIntegrationTest    : Started VentasIntegrationTest in 7.041 seconds (process running for 42.422)
+2026-10-11T08:38:41.288-05:00  WARN 27636 --- [Actividad01] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-11T08:38:41.290-05:00  WARN 27636 --- [Actividad01] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-10-11T08:38:42.012-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-11T08:38:42.014-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-11T08:38:42.021-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2026-10-11T08:38:45.066-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-2] c.e.A.service.impl.ClienteServiceImpl    : Registrando cliente con DNI=74771123
+2026-10-11T08:38:45.113-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-2] c.e.A.service.impl.ClienteServiceImpl    : Cliente registrado correctamente id=1
+2026-10-11T08:38:46.477-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-7] c.e.A.service.impl.ClienteServiceImpl    : Registrando cliente con DNI=69105370
+2026-10-11T08:38:46.493-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-7] c.e.A.service.impl.ClienteServiceImpl    : Cliente registrado correctamente id=2
+2026-10-11T08:38:46.870-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-9] c.e.A.service.impl.ClienteServiceImpl    : Registrando cliente con DNI=65871804
+2026-10-11T08:38:46.883-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-9] c.e.A.service.impl.ClienteServiceImpl    : Cliente registrado correctamente id=3
+2026-10-11T08:38:47.108-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-2] c.e.A.service.impl.ReporteServiceImpl    : Inicio reporte ventas por categoria | desde=null | hasta=null
+2026-10-11T08:38:47.203-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-2] c.e.A.service.impl.ReporteServiceImpl    : Fin reporte ventas por categoria | desde=null | hasta=null | filas=2 | duracionMs=95
+2026-10-11T08:38:47.291-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-5] c.e.A.service.impl.ClienteServiceImpl    : Registrando cliente con DNI=48478086
+2026-10-11T08:38:47.301-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-5] c.e.A.service.impl.ClienteServiceImpl    : Cliente registrado correctamente id=4
+2026-10-11T08:38:47.685-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-9] c.e.A.service.impl.ClienteServiceImpl    : Registrando cliente con DNI=58848930
+2026-10-11T08:38:47.703-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-9] c.e.A.service.impl.ClienteServiceImpl    : Cliente registrado correctamente id=5
+2026-10-11T08:38:47.998-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-4] c.e.A.service.impl.ReporteServiceImpl    : Inicio reporte ventas por categoria | desde=null | hasta=null
+2026-10-11T08:38:48.009-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-4] c.e.A.service.impl.ReporteServiceImpl    : Fin reporte ventas por categoria | desde=null | hasta=null | filas=3 | duracionMs=11
+2026-10-11T08:38:48.089-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-8] c.e.A.service.impl.ClienteServiceImpl    : Registrando cliente con DNI=45354719
+2026-10-11T08:38:48.101-05:00  INFO 27636 --- [Actividad01] [o-auto-1-exec-8] c.e.A.service.impl.ClienteServiceImpl    : Cliente registrado correctamente id=6
+2026-10-11T08:38:48.153-05:00  WARN 27636 --- [Actividad01] [o-auto-1-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot coerce Floating-point value (2.5) to `java.lang.Integer` value (but could if coercion was enabled using `CoercionConfig`)]
+2026-10-11T08:38:48.281-05:00  INFO 27636 --- [Actividad01] [-auto-1-exec-10] c.e.A.service.impl.ClienteServiceImpl    : Registrando cliente con DNI=12687038
+2026-10-11T08:38:48.288-05:00  INFO 27636 --- [Actividad01] [-auto-1-exec-10] c.e.A.service.impl.ClienteServiceImpl    : Cliente registrado correctamente id=7
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.00 s -- in com.example.Actividad01.VentasIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:20 min
+[INFO] Finished at: 2026-10-11T08:38:49-05:00
+[INFO] ------------------------------------------------------------------------

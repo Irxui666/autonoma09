@@ -1,0 +1,37 @@
+{
+  "id": "V-05",
+  "grupo": "Validaciones",
+  "precondicion": "Mismo producto en dos líneas",
+  "datos": "A1 x1 + A1 x1",
+  "esperado": "Regla: rechazar duplicados, HTTP 409",
+  "obtenido": "HTTP 409: Un producto no puede repetirse en el detalle",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "POST",
+      "ruta": "ventas",
+      "estado": 409,
+      "solicitud": {
+        "clienteId": 1,
+        "detalles": [
+          {
+            "productoId": 1,
+            "cantidad": 1
+          },
+          {
+            "productoId": 1,
+            "cantidad": 1
+          }
+        ]
+      },
+      "respuesta": {
+        "timestamp": "2026-10-11T08:39:50.1147166",
+        "status": 409,
+        "error": "Conflict",
+        "message": "Un producto no puede repetirse en el detalle",
+        "path": "/api/v1/ventas",
+        "validationErrors": null
+      }
+    }
+  ]
+}

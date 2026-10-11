@@ -1,0 +1,33 @@
+{
+  "id": "API-V03",
+  "grupo": "API de validación",
+  "precondicion": "Datos iniciales",
+  "datos": "{'clienteId': 1, 'detalles': [{'productoId': 4, 'cantidad': 3}]}",
+  "esperado": "HTTP 409",
+  "obtenido": "HTTP 409: Stock insuficiente o producto inactivo: Producto A4. Actualice los productos e intente nuevamente.",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "POST",
+      "ruta": "ventas",
+      "estado": 409,
+      "solicitud": {
+        "clienteId": 1,
+        "detalles": [
+          {
+            "productoId": 4,
+            "cantidad": 3
+          }
+        ]
+      },
+      "respuesta": {
+        "timestamp": "2026-10-11T08:39:50.3628689",
+        "status": 409,
+        "error": "Conflict",
+        "message": "Stock insuficiente o producto inactivo: Producto A4. Actualice los productos e intente nuevamente.",
+        "path": "/api/v1/ventas",
+        "validationErrors": null
+      }
+    }
+  ]
+}

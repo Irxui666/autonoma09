@@ -1,0 +1,31 @@
+{
+  "id": "API-V02-2.5",
+  "grupo": "API de validación",
+  "precondicion": "Datos iniciales",
+  "datos": "{'clienteId': 1, 'detalles': [{'productoId': 1, 'cantidad': 2.5}]}",
+  "esperado": "HTTP 400",
+  "obtenido": "HTTP 400: None",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "POST",
+      "ruta": "ventas",
+      "estado": 400,
+      "solicitud": {
+        "clienteId": 1,
+        "detalles": [
+          {
+            "productoId": 1,
+            "cantidad": 2.5
+          }
+        ]
+      },
+      "respuesta": {
+        "timestamp": "2026-10-11T13:39:50.292Z",
+        "status": 400,
+        "error": "Bad Request",
+        "path": "/api/v1/ventas"
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "C-04",
+  "grupo": "Cálculos",
+  "precondicion": "Cliente y productos activos; línea intermedia eliminada",
+  "datos": "A1 x 2 y A3 x 1",
+  "esperado": "12.50 x 2 + 1.10 = 26.10; HTTP 201",
+  "obtenido": "HTTP 201: 26.1",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "POST",
+      "ruta": "ventas",
+      "estado": 201,
+      "solicitud": {
+        "clienteId": 1,
+        "detalles": [
+          {
+            "productoId": 1,
+            "cantidad": 2
+          },
+          {
+            "productoId": 3,
+            "cantidad": 1
+          }
+        ]
+      },
+      "respuesta": {
+        "id": 1,
+        "fecha": "2026-10-11T08:39:49.8786931",
+        "clienteId": 1,
+        "clienteNombre": "Ana Huamán",
+        "estado": "REGISTRADA",
+        "total": 26.1,
+        "detalles": [
+          {
+            "productoId": 1,
+            "productoNombre": "Producto A1",
+            "cantidad": 2,
+            "precio": 12.5,
+            "subtotal": 25.0
+          },
+          {
+            "productoId": 3,
+            "productoNombre": "Producto A3",
+            "cantidad": 1,
+            "precio": 1.1,
+            "subtotal": 1.1
+          }
+        ]
+      }
+    }
+  ]
+}

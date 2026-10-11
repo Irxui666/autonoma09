@@ -1,0 +1,81 @@
+{
+  "id": "M-01",
+  "grupo": "Mensajes",
+  "precondicion": "Stock 2; dos solicitudes simultáneas",
+  "datos": "Ambas solicitan A4 x2",
+  "esperado": "Una 201 y otra 409; stock final 0",
+  "obtenido": "HTTP [201, 409]; stock 0",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "POST",
+      "ruta": "ventas",
+      "estado": 201,
+      "solicitud": {
+        "clienteId": 1,
+        "detalles": [
+          {
+            "productoId": 4,
+            "cantidad": 2
+          }
+        ]
+      },
+      "respuesta": {
+        "id": 2,
+        "fecha": "2026-10-11T08:39:50.39224",
+        "clienteId": 1,
+        "clienteNombre": "Ana Huamán",
+        "estado": "REGISTRADA",
+        "total": 10,
+        "detalles": [
+          {
+            "productoId": 4,
+            "productoNombre": "Producto A4",
+            "cantidad": 2,
+            "precio": 5,
+            "subtotal": 10
+          }
+        ]
+      }
+    },
+    {
+      "metodo": "POST",
+      "ruta": "ventas",
+      "estado": 409,
+      "solicitud": {
+        "clienteId": 1,
+        "detalles": [
+          {
+            "productoId": 4,
+            "cantidad": 2
+          }
+        ]
+      },
+      "respuesta": {
+        "timestamp": "2026-10-11T08:39:50.4627209",
+        "status": 409,
+        "error": "Conflict",
+        "message": "Stock insuficiente o producto inactivo: Producto A4. Actualice los productos e intente nuevamente.",
+        "path": "/api/v1/ventas",
+        "validationErrors": null
+      }
+    },
+    {
+      "metodo": "GET",
+      "ruta": "productos/4",
+      "estado": 200,
+      "solicitud": null,
+      "respuesta": {
+        "id": 4,
+        "nombre": "Producto A4",
+        "precio": 5,
+        "stock": 0,
+        "estado": true,
+        "categoriaId": 1,
+        "categoriaNombre": "Analgésicos autónoma",
+        "fechaCreacion": "2026-10-11T08:39:49.391479",
+        "fechaModificacion": null
+      }
+    }
+  ]
+}

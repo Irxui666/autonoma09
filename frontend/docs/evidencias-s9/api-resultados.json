@@ -1,0 +1,521 @@
+[
+  {
+    "id": "C-04",
+    "grupo": "Cálculos",
+    "precondicion": "Cliente y productos activos; línea intermedia eliminada",
+    "datos": "A1 x 2 y A3 x 1",
+    "esperado": "12.50 x 2 + 1.10 = 26.10; HTTP 201",
+    "obtenido": "HTTP 201: 26.1",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "POST",
+        "ruta": "ventas",
+        "estado": 201,
+        "solicitud": {
+          "clienteId": 1,
+          "detalles": [
+            {
+              "productoId": 1,
+              "cantidad": 2
+            },
+            {
+              "productoId": 3,
+              "cantidad": 1
+            }
+          ]
+        },
+        "respuesta": {
+          "id": 1,
+          "fecha": "2026-10-11T08:39:49.8786931",
+          "clienteId": 1,
+          "clienteNombre": "Ana Huamán",
+          "estado": "REGISTRADA",
+          "total": 26.1,
+          "detalles": [
+            {
+              "productoId": 1,
+              "productoNombre": "Producto A1",
+              "cantidad": 2,
+              "precio": 12.5,
+              "subtotal": 25.0
+            },
+            {
+              "productoId": 3,
+              "productoNombre": "Producto A3",
+              "cantidad": 1,
+              "precio": 1.1,
+              "subtotal": 1.1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "V-05",
+    "grupo": "Validaciones",
+    "precondicion": "Mismo producto en dos líneas",
+    "datos": "A1 x1 + A1 x1",
+    "esperado": "Regla: rechazar duplicados, HTTP 409",
+    "obtenido": "HTTP 409: Un producto no puede repetirse en el detalle",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "POST",
+        "ruta": "ventas",
+        "estado": 409,
+        "solicitud": {
+          "clienteId": 1,
+          "detalles": [
+            {
+              "productoId": 1,
+              "cantidad": 1
+            },
+            {
+              "productoId": 1,
+              "cantidad": 1
+            }
+          ]
+        },
+        "respuesta": {
+          "timestamp": "2026-10-11T08:39:50.1147166",
+          "status": 409,
+          "error": "Conflict",
+          "message": "Un producto no puede repetirse en el detalle",
+          "path": "/api/v1/ventas",
+          "validationErrors": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "M-02",
+    "grupo": "Mensajes",
+    "precondicion": "Cliente inactivo existente",
+    "datos": "clienteId inactivo, A1 x1",
+    "esperado": "HTTP 409; cliente inactivo",
+    "obtenido": "HTTP 409: No se puede registrar una venta para un cliente inactivo",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "POST",
+        "ruta": "ventas",
+        "estado": 409,
+        "solicitud": {
+          "clienteId": 4,
+          "detalles": [
+            {
+              "productoId": 1,
+              "cantidad": 1
+            }
+          ]
+        },
+        "respuesta": {
+          "timestamp": "2026-10-11T08:39:50.1521843",
+          "status": 409,
+          "error": "Conflict",
+          "message": "No se puede registrar una venta para un cliente inactivo",
+          "path": "/api/v1/ventas",
+          "validationErrors": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "API-V01",
+    "grupo": "API de validación",
+    "precondicion": "Datos iniciales",
+    "datos": "{'detalles': []}",
+    "esperado": "HTTP 400",
+    "obtenido": "HTTP 400: Existen errores de validacion",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "POST",
+        "ruta": "ventas",
+        "estado": 400,
+        "solicitud": {
+          "detalles": []
+        },
+        "respuesta": {
+          "timestamp": "2026-10-11T08:39:50.191261",
+          "status": 400,
+          "error": "Bad Request",
+          "message": "Existen errores de validacion",
+          "path": "/api/v1/ventas",
+          "validationErrors": {
+            "clienteId": "El cliente es obligatorio",
+            "detalles": "La venta debe contener al menos un detalle"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "API-V02-0",
+    "grupo": "API de validación",
+    "precondicion": "Datos iniciales",
+    "datos": "{'clienteId': 1, 'detalles': [{'productoId': 1, 'cantidad': 0}]}",
+    "esperado": "HTTP 400",
+    "obtenido": "HTTP 400: Existen errores de validacion",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "POST",
+        "ruta": "ventas",
+        "estado": 400,
+        "solicitud": {
+          "clienteId": 1,
+          "detalles": [
+            {
+              "productoId": 1,
+              "cantidad": 0
+            }
+          ]
+        },
+        "respuesta": {
+          "timestamp": "2026-10-11T08:39:50.227078",
+          "status": 400,
+          "error": "Bad Request",
+          "message": "Existen errores de validacion",
+          "path": "/api/v1/ventas",
+          "validationErrors": {
+            "detalles[0].cantidad": "La cantidad debe ser mayor que cero"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "API-V02-2.5",
+    "grupo": "API de validación",
+    "precondicion": "Datos iniciales",
+    "datos": "{'clienteId': 1, 'detalles': [{'productoId': 1, 'cantidad': 2.5}]}",
+    "esperado": "HTTP 400",
+    "obtenido": "HTTP 400: None",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "POST",
+        "ruta": "ventas",
+        "estado": 400,
+        "solicitud": {
+          "clienteId": 1,
+          "detalles": [
+            {
+              "productoId": 1,
+              "cantidad": 2.5
+            }
+          ]
+        },
+        "respuesta": {
+          "timestamp": "2026-10-11T13:39:50.292Z",
+          "status": 400,
+          "error": "Bad Request",
+          "path": "/api/v1/ventas"
+        }
+      }
+    ]
+  },
+  {
+    "id": "API-V03",
+    "grupo": "API de validación",
+    "precondicion": "Datos iniciales",
+    "datos": "{'clienteId': 1, 'detalles': [{'productoId': 4, 'cantidad': 3}]}",
+    "esperado": "HTTP 409",
+    "obtenido": "HTTP 409: Stock insuficiente o producto inactivo: Producto A4. Actualice los productos e intente nuevamente.",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "POST",
+        "ruta": "ventas",
+        "estado": 409,
+        "solicitud": {
+          "clienteId": 1,
+          "detalles": [
+            {
+              "productoId": 4,
+              "cantidad": 3
+            }
+          ]
+        },
+        "respuesta": {
+          "timestamp": "2026-10-11T08:39:50.3628689",
+          "status": 409,
+          "error": "Conflict",
+          "message": "Stock insuficiente o producto inactivo: Producto A4. Actualice los productos e intente nuevamente.",
+          "path": "/api/v1/ventas",
+          "validationErrors": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "M-01",
+    "grupo": "Mensajes",
+    "precondicion": "Stock 2; dos solicitudes simultáneas",
+    "datos": "Ambas solicitan A4 x2",
+    "esperado": "Una 201 y otra 409; stock final 0",
+    "obtenido": "HTTP [201, 409]; stock 0",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "POST",
+        "ruta": "ventas",
+        "estado": 201,
+        "solicitud": {
+          "clienteId": 1,
+          "detalles": [
+            {
+              "productoId": 4,
+              "cantidad": 2
+            }
+          ]
+        },
+        "respuesta": {
+          "id": 2,
+          "fecha": "2026-10-11T08:39:50.39224",
+          "clienteId": 1,
+          "clienteNombre": "Ana Huamán",
+          "estado": "REGISTRADA",
+          "total": 10,
+          "detalles": [
+            {
+              "productoId": 4,
+              "productoNombre": "Producto A4",
+              "cantidad": 2,
+              "precio": 5,
+              "subtotal": 10
+            }
+          ]
+        }
+      },
+      {
+        "metodo": "POST",
+        "ruta": "ventas",
+        "estado": 409,
+        "solicitud": {
+          "clienteId": 1,
+          "detalles": [
+            {
+              "productoId": 4,
+              "cantidad": 2
+            }
+          ]
+        },
+        "respuesta": {
+          "timestamp": "2026-10-11T08:39:50.4627209",
+          "status": 409,
+          "error": "Conflict",
+          "message": "Stock insuficiente o producto inactivo: Producto A4. Actualice los productos e intente nuevamente.",
+          "path": "/api/v1/ventas",
+          "validationErrors": null
+        }
+      },
+      {
+        "metodo": "GET",
+        "ruta": "productos/4",
+        "estado": 200,
+        "solicitud": null,
+        "respuesta": {
+          "id": 4,
+          "nombre": "Producto A4",
+          "precio": 5,
+          "stock": 0,
+          "estado": true,
+          "categoriaId": 1,
+          "categoriaNombre": "Analgésicos autónoma",
+          "fechaCreacion": "2026-10-11T08:39:49.391479",
+          "fechaModificacion": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "X-01",
+    "grupo": "Consistencia",
+    "precondicion": "Venta C-04 registrada",
+    "datos": "Comparar productos y consulta",
+    "esperado": "40 - 2 = 38; total 26.10 y 2 ítems",
+    "obtenido": "stock A1=38; total=26.1; lineas=2",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "GET",
+        "ruta": "productos/1",
+        "estado": 200,
+        "solicitud": null,
+        "respuesta": {
+          "id": 1,
+          "nombre": "Producto A1",
+          "precio": 12.5,
+          "stock": 38,
+          "estado": true,
+          "categoriaId": 1,
+          "categoriaNombre": "Analgésicos autónoma",
+          "fechaCreacion": "2026-10-11T08:39:49.287039",
+          "fechaModificacion": null
+        }
+      },
+      {
+        "metodo": "GET",
+        "ruta": "ventas/buscar?clienteId=1",
+        "estado": 200,
+        "solicitud": null,
+        "respuesta": {
+          "contenido": [
+            {
+              "id": 2,
+              "fecha": "2026-10-11T08:39:50.39224",
+              "clienteId": 1,
+              "clienteNombre": "Ana Huamán",
+              "estado": "REGISTRADA",
+              "total": 10,
+              "detalles": [
+                {
+                  "productoId": 4,
+                  "productoNombre": "Producto A4",
+                  "cantidad": 2,
+                  "precio": 5,
+                  "subtotal": 10
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "fecha": "2026-10-11T08:39:49.878693",
+              "clienteId": 1,
+              "clienteNombre": "Ana Huamán",
+              "estado": "REGISTRADA",
+              "total": 26.1,
+              "detalles": [
+                {
+                  "productoId": 1,
+                  "productoNombre": "Producto A1",
+                  "cantidad": 2,
+                  "precio": 12.5,
+                  "subtotal": 25.0
+                },
+                {
+                  "productoId": 3,
+                  "productoNombre": "Producto A3",
+                  "cantidad": 1,
+                  "precio": 1.1,
+                  "subtotal": 1.1
+                }
+              ]
+            }
+          ],
+          "pagina": 0,
+          "tamanio": 10,
+          "totalElementos": 2,
+          "totalPaginas": 1,
+          "primera": true,
+          "ultima": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "P-04",
+    "grupo": "Mensajes",
+    "precondicion": "Producto inexistente",
+    "datos": "productoId=99999999",
+    "esperado": "HTTP 404",
+    "obtenido": "HTTP 404: Producto no encontrado con id: 99999999",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "POST",
+        "ruta": "ventas",
+        "estado": 404,
+        "solicitud": {
+          "clienteId": 1,
+          "detalles": [
+            {
+              "productoId": 99999999,
+              "cantidad": 1
+            }
+          ]
+        },
+        "respuesta": {
+          "timestamp": "2026-10-11T08:39:50.8168177",
+          "status": 404,
+          "error": "Not Found",
+          "message": "Producto no encontrado con id: 99999999",
+          "path": "/api/v1/ventas",
+          "validationErrors": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "R-01",
+    "grupo": "Reporte",
+    "precondicion": "C-04 y una venta de A4",
+    "datos": "Histórico",
+    "esperado": "26.10 + 5.00 x 2 = 36.10",
+    "obtenido": "HTTP 200; total 36.1; 1 categorías",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "GET",
+        "ruta": "reportes/ventas-por-categoria",
+        "estado": 200,
+        "solicitud": null,
+        "respuesta": [
+          {
+            "categoriaId": 1,
+            "nombreCategoria": "Analgésicos autónoma",
+            "cantidadTotal": 5,
+            "montoTotal": 36.1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "R-06",
+    "grupo": "Reporte",
+    "precondicion": "Ventas fuera del futuro",
+    "datos": "Fechas de prueba",
+    "esperado": "HTTP 200",
+    "obtenido": "HTTP 200: []",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "GET",
+        "ruta": "reportes/ventas-por-categoria?desde=2099-01-01&hasta=2099-01-02",
+        "estado": 200,
+        "solicitud": null,
+        "respuesta": []
+      }
+    ]
+  },
+  {
+    "id": "R-07",
+    "grupo": "Reporte",
+    "precondicion": "Ventas fuera del futuro",
+    "datos": "Fechas de prueba",
+    "esperado": "HTTP 409",
+    "obtenido": "HTTP 409: {'timestamp': '2026-10-11T08:39:51.0692521', 'status': 409, 'error': 'Conflict', 'message': \"El rango de fechas es inválido: 'desde' (2026-10-11) es posterior a 'hasta' (2026-10-01)\", 'path': '/api/v1/reportes/ventas-por-categoria', 'validationErrors': None}",
+    "estado": "Pasa",
+    "http": [
+      {
+        "metodo": "GET",
+        "ruta": "reportes/ventas-por-categoria?desde=2026-10-11&hasta=2026-10-01",
+        "estado": 409,
+        "solicitud": null,
+        "respuesta": {
+          "timestamp": "2026-10-11T08:39:51.0692521",
+          "status": 409,
+          "error": "Conflict",
+          "message": "El rango de fechas es inválido: 'desde' (2026-10-11) es posterior a 'hasta' (2026-10-01)",
+          "path": "/api/v1/reportes/ventas-por-categoria",
+          "validationErrors": null
+        }
+      }
+    ]
+  }
+]

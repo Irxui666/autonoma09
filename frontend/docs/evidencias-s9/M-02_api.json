@@ -1,0 +1,33 @@
+{
+  "id": "M-02",
+  "grupo": "Mensajes",
+  "precondicion": "Cliente inactivo existente",
+  "datos": "clienteId inactivo, A1 x1",
+  "esperado": "HTTP 409; cliente inactivo",
+  "obtenido": "HTTP 409: No se puede registrar una venta para un cliente inactivo",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "POST",
+      "ruta": "ventas",
+      "estado": 409,
+      "solicitud": {
+        "clienteId": 4,
+        "detalles": [
+          {
+            "productoId": 1,
+            "cantidad": 1
+          }
+        ]
+      },
+      "respuesta": {
+        "timestamp": "2026-10-11T08:39:50.1521843",
+        "status": 409,
+        "error": "Conflict",
+        "message": "No se puede registrar una venta para un cliente inactivo",
+        "path": "/api/v1/ventas",
+        "validationErrors": null
+      }
+    }
+  ]
+}

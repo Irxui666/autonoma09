@@ -1,0 +1,25 @@
+{
+  "id": "R-07",
+  "grupo": "Reporte",
+  "precondicion": "Ventas fuera del futuro",
+  "datos": "Fechas de prueba",
+  "esperado": "HTTP 409",
+  "obtenido": "HTTP 409: {'timestamp': '2026-10-11T08:39:51.0692521', 'status': 409, 'error': 'Conflict', 'message': \"El rango de fechas es inválido: 'desde' (2026-10-11) es posterior a 'hasta' (2026-10-01)\", 'path': '/api/v1/reportes/ventas-por-categoria', 'validationErrors': None}",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "GET",
+      "ruta": "reportes/ventas-por-categoria?desde=2026-10-11&hasta=2026-10-01",
+      "estado": 409,
+      "solicitud": null,
+      "respuesta": {
+        "timestamp": "2026-10-11T08:39:51.0692521",
+        "status": 409,
+        "error": "Conflict",
+        "message": "El rango de fechas es inválido: 'desde' (2026-10-11) es posterior a 'hasta' (2026-10-01)",
+        "path": "/api/v1/reportes/ventas-por-categoria",
+        "validationErrors": null
+      }
+    }
+  ]
+}

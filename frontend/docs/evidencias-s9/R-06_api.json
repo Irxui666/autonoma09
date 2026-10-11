@@ -1,0 +1,18 @@
+{
+  "id": "R-06",
+  "grupo": "Reporte",
+  "precondicion": "Ventas fuera del futuro",
+  "datos": "Fechas de prueba",
+  "esperado": "HTTP 200",
+  "obtenido": "HTTP 200: []",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "GET",
+      "ruta": "reportes/ventas-por-categoria?desde=2099-01-01&hasta=2099-01-02",
+      "estado": 200,
+      "solicitud": null,
+      "respuesta": []
+    }
+  ]
+}

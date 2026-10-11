@@ -1,0 +1,17 @@
+
+> pharma-frontend@0.0.0 test
+> ng test --watch=false
+
+> Building...
+√ Building...
+Application bundle generation complete. [5.986 seconds] - 2026-10-11T13:40:03.919Z
+
+
+ RUN  v5.0.3 C:/UNIVERSIDAD/LP2/SEMANA9/pharmaSoft-frotend-main
+
+
+ Test Files  16 passed (16)
+      Tests  40 passed (40)
+   Start at  08:40:04
+   Duration  11.41s (environment 73%, setup 12%, tests 6%, transform 4%, import 4%)
+

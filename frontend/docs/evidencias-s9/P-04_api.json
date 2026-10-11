@@ -1,0 +1,33 @@
+{
+  "id": "P-04",
+  "grupo": "Mensajes",
+  "precondicion": "Producto inexistente",
+  "datos": "productoId=99999999",
+  "esperado": "HTTP 404",
+  "obtenido": "HTTP 404: Producto no encontrado con id: 99999999",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "POST",
+      "ruta": "ventas",
+      "estado": 404,
+      "solicitud": {
+        "clienteId": 1,
+        "detalles": [
+          {
+            "productoId": 99999999,
+            "cantidad": 1
+          }
+        ]
+      },
+      "respuesta": {
+        "timestamp": "2026-10-11T08:39:50.8168177",
+        "status": 404,
+        "error": "Not Found",
+        "message": "Producto no encontrado con id: 99999999",
+        "path": "/api/v1/ventas",
+        "validationErrors": null
+      }
+    }
+  ]
+}

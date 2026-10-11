@@ -1,0 +1,25 @@
+{
+  "id": "R-01",
+  "grupo": "Reporte",
+  "precondicion": "C-04 y una venta de A4",
+  "datos": "Histórico",
+  "esperado": "26.10 + 5.00 x 2 = 36.10",
+  "obtenido": "HTTP 200; total 36.1; 1 categorías",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "GET",
+      "ruta": "reportes/ventas-por-categoria",
+      "estado": 200,
+      "solicitud": null,
+      "respuesta": [
+        {
+          "categoriaId": 1,
+          "nombreCategoria": "Analgésicos autónoma",
+          "cantidadTotal": 5,
+          "montoTotal": 36.1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "API-V02-0",
+  "grupo": "API de validación",
+  "precondicion": "Datos iniciales",
+  "datos": "{'clienteId': 1, 'detalles': [{'productoId': 1, 'cantidad': 0}]}",
+  "esperado": "HTTP 400",
+  "obtenido": "HTTP 400: Existen errores de validacion",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "POST",
+      "ruta": "ventas",
+      "estado": 400,
+      "solicitud": {
+        "clienteId": 1,
+        "detalles": [
+          {
+            "productoId": 1,
+            "cantidad": 0
+          }
+        ]
+      },
+      "respuesta": {
+        "timestamp": "2026-10-11T08:39:50.227078",
+        "status": 400,
+        "error": "Bad Request",
+        "message": "Existen errores de validacion",
+        "path": "/api/v1/ventas",
+        "validationErrors": {
+          "detalles[0].cantidad": "La cantidad debe ser mayor que cero"
+        }
+      }
+    }
+  ]
+}

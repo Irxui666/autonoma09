@@ -1,0 +1,30 @@
+{
+  "id": "API-V01",
+  "grupo": "API de validación",
+  "precondicion": "Datos iniciales",
+  "datos": "{'detalles': []}",
+  "esperado": "HTTP 400",
+  "obtenido": "HTTP 400: Existen errores de validacion",
+  "estado": "Pasa",
+  "http": [
+    {
+      "metodo": "POST",
+      "ruta": "ventas",
+      "estado": 400,
+      "solicitud": {
+        "detalles": []
+      },
+      "respuesta": {
+        "timestamp": "2026-10-11T08:39:50.191261",
+        "status": 400,
+        "error": "Bad Request",
+        "message": "Existen errores de validacion",
+        "path": "/api/v1/ventas",
+        "validationErrors": {
+          "clienteId": "El cliente es obligatorio",
+          "detalles": "La venta debe contener al menos un detalle"
+        }
+      }
+    }
+  ]
+}
